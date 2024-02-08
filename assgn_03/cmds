@@ -1,0 +1,29 @@
+set pagination off
+
+break 22
+break 23
+run
+
+set $num = guess
+continue
+set $hamm = h
+continue
+
+set $bit = 0
+while($hamm > 0)
+    run
+    set guess = $num^(1<<$bit)
+    continue
+
+    if(h < $hamm)
+        set $hamm = h
+        set $num = guess
+    end
+    continue
+
+    set $bit = $bit+1
+end
+
+echo Secret number =\t 
+output $num
+quit
