@@ -30,13 +30,6 @@ echo `echo "scale = 10; $num / $den" | bc`
 printf "\n"
 
 echo -n "Enter fraction (a / b): "; read -a frac
-until false
-do
-    if [ ! ${#frac[@]} -eq 3 ]; then echo "Enter in the form a / b"
-    else break
-    fi
-done
-
 echo -n "The continued fraction expansion of ${frac[0]} / ${frac[2]} is: "
 gencfrac ${frac[0]} ${frac[2]}
 printf "\n"
